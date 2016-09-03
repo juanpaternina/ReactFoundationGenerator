@@ -51,8 +51,8 @@ module.exports = generators.Base.extend({
                 this.destinationPath('app/components/Main.js')
             );
             this.fs.copy(
-                this.templatePath('_public/_index.html'),
-                this.destinationPath('index.html')
+                this.templatePath('_app/_index.html'),
+                this.destinationPath('app/index.html')
             );
             this.fs.copy(
                 this.templatePath('_app/_app.js'),
@@ -62,12 +62,20 @@ module.exports = generators.Base.extend({
                 this.templatePath('_app/_styles/_app.scss'),
                 this.destinationPath('app/styles/app.scss')
             );
-
+            this.fs.copy(
+                this.templatePath('_app/_favicon.ico'),
+                this.destinationPath('app/favicon.ico')
+            );
+            this.fs.copy(
+                this.templatePath('_app/_images/_yeoman.png'),
+                this.destinationPath('app/images/yeoman.png')
+            );
         }
     },
 
     //Install Dependencies
     install: function() {
+        //Dev Dependencies
         this.npmInstall(
             ['webpack', 'webpack-dev-server', 'babel-preset-react', 'babel-preset-es2015',
                 'babel-loader', 'babel-core', 'babel-preset-react', 'babel-preset-stage-0',
@@ -77,6 +85,7 @@ module.exports = generators.Base.extend({
                 'saveDev': true
             }
         );
+        //Dependencies
         this.npmInstall(
             ['react', 'react-dom', 'react-router'], {
                 'save': true

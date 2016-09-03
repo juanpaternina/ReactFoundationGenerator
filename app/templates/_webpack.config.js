@@ -10,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: './bundle.js'
+    filename: './app/bundle.js'
   },
   externals: {
     jquery: 'jQuery'
@@ -38,6 +38,10 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.s?css$/,
+        loaders: ["style", "css", "sass"],
       }
     ]
   }
