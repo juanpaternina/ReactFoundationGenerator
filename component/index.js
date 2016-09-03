@@ -9,6 +9,9 @@ module.exports = generators.Base.extend({
         // Calling the super constructor is important so our generator is correctly set up
         generators.Base.apply(this, arguments);
 
+        this.option('fromParent');
+        this.option('name');
+
         this.capitalizeFirstLetter = function(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -16,16 +19,20 @@ module.exports = generators.Base.extend({
 
     //Ask for user inputs
     prompting: function() {
-        var done = this.async();
-        this.prompt([{
-            type: 'input',
-            name: 'name',
-            required: true,
-            message: 'What\'s the name of Component'
-        }]).then(function(answers) {
-            this.props = answers;
-            done();
-        }.bind(this));
+        if(this.options.fromParent){
+          this.props = {name: this.options.name};
+        }else{
+          var done = this.async();
+          this.prompt([{
+              type: 'input',
+              name: 'name',
+              required: true,
+              message: 'What\'s the name of Component'
+          }]).then(function(answers) {
+              this.props = answers;
+              done();
+          }.bind(this));
+        }
     },
 
     //Writing Logic here
@@ -36,16 +43,25 @@ module.exports = generators.Base.extend({
 
         //Copy application files
         app: function() {
+
+          var path = './app/components/';
+          var template = '_component.js';
+
+          if (this.options.fromParent) {
+              path = '../app/components/'
+              template = '_componentMain.js'
+          }
+
           var name = this.capitalizeFirstLetter(this.props.name);
           this.fs.copyTpl(
-              this.templatePath('_component.js'),
-              this.destinationPath('./app/components/'+name+'/'+name+'.js'), {
+              this.templatePath(template),
+              this.destinationPath(path+name+'/'+name+'.js'), {
                   name: name
               }
           );
           this.fs.copyTpl(
               this.templatePath('_component.scss'),
-              this.destinationPath('./app/components/'+name+'/'+name+'.scss'), {
+              this.destinationPath(path+name+'/'+name+'.scss'), {
                   name: name
               }
           );
@@ -55,8 +71,6 @@ module.exports = generators.Base.extend({
     //Install Dependencies
     install: function() {
         //Dev Dependencies
-
         //Dependencies
-
     }
 });

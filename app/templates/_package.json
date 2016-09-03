@@ -1,12 +1,12 @@
 {
-  "name": "boilerplate",
-  "version": "1.0.0",
-  "description": "Simple react app",
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot"
   },
-  "author": "Juan Pablo Paternina",
-  "license": "MIT"
+  "author": "<%= author %>",
+  "license": "<%= licence %>"
 }
