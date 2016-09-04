@@ -12,6 +12,6 @@ Work in progress
 - [ ] Add Server deploy config with Express
 - [ ] Create Tests for Generator
 - [ ] Add API file to template
-- [X] Add GitIgnore file to template
+- [X] Add gitIgnore file to template
 - [X] Add Readme file to template
 - [x] Webpack Dev Server start from App folder

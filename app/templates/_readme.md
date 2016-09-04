@@ -1,7 +1,7 @@
 <%= name %> Project
 
 ##Description
-Awesome Project
+Awesome Project \0/
 
 ##Todos
 - [ ] Create Awesome Project;
