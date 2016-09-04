@@ -16,8 +16,7 @@ module.exports = {
     jquery: 'jQuery'
   },
   devServer: {
-    contentBase: "./app",
-    hot: true
+    contentBase: "./app"
   },
   plugins: [
     new webpack.ProvidePlugin({
