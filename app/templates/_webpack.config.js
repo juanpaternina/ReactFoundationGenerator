@@ -10,10 +10,14 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: './app/bundle.js'
+    filename: './bundle.js'
   },
   externals: {
     jquery: 'jQuery'
+  },
+  devServer: {
+    contentBase: "./app",
+    hot: true
   },
   plugins: [
     new webpack.ProvidePlugin({

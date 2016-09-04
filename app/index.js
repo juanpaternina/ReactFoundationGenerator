@@ -112,14 +112,14 @@ module.exports = generators.Base.extend({
             ['webpack', 'webpack-dev-server', 'babel-preset-react', 'babel-preset-es2015',
                 'babel-loader', 'babel-core', 'babel-preset-react', 'babel-preset-stage-0',
                 'css-loader', 'foundation-sites', 'jquery@2.2.1', 'node-sass', 'sass-loader',
-                'script-loader', 'style-loader', 'axios'
+                'script-loader', 'style-loader', 'react-redux', 'redux'
             ], {
                 'saveDev': true
             }
         );
         //Dependencies
         this.npmInstall(
-            ['react', 'react-dom', 'react-router'], {
+            ['react', 'react-dom', 'react-router', 'axios'], {
                 'save': true
             }
         );
