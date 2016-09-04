@@ -72,6 +72,16 @@ module.exports = generators.Base.extend({
                     name: this.props.name
                 }
             );
+            this.fs.copy(
+                this.templatePath('_gitignore'),
+                this.destinationPath('.gitignore')
+            );
+            this.fs.copyTpl(
+                this.templatePath('_readme.md'),
+                this.destinationPath('readme.md'), {
+                    name: this.props.name
+                }
+            );
         },
 
         //Copy application files
