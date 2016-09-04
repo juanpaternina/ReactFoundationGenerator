@@ -1,13 +1,15 @@
-React with foundation Yeoman generators
+Generator For React, Foundation and Redux App
 
-
-Readme in progress
+##Description
+Work in progress
 
 ##Todos
 
-- [ ] Make Readme
+- [ ] Make Read me file
 - [ ] Add redux to template
-- [ ] Add API file
-- [ ] Add ESLint
+- [ ] Add API file to template
+- [ ] Add Test to template
+- [ ] Add ESLint to template
 - [ ] Add Server deploy config
+- [ ] Create Test for Generator
 - [x] Webpack Dev Server start from App folder
