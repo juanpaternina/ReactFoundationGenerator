@@ -102,6 +102,20 @@ module.exports = generators.Base.extend({
                 this.templatePath('_app/_favicon.ico'),
                 this.destinationPath('app/favicon.ico')
             );
+            //Copy Setting
+            this.fs.copy(
+                this.templatePath('_app/_styles/_base/_foundation-settings.scss'),
+                this.destinationPath('app/styles/base/_foundation-settings.scss')
+            );
+            //Copy Variables
+            this.fs.copy(
+                this.templatePath('_app/_styles/_base/_variables.scss'),
+                this.destinationPath('app/styles/base/_variables.scss')
+            );
+            this.fs.copy(
+                this.templatePath('_app/_favicon.ico'),
+                this.destinationPath('app/favicon.ico')
+            );
             this.fs.copy(
                 this.templatePath('_app/_images/_yeoman.png'),
                 this.destinationPath('app/images/yeoman.png')

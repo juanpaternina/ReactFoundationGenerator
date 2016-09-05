@@ -45,10 +45,12 @@ module.exports = generators.Base.extend({
         app: function() {
 
           var path = './app/components/';
+          var pathStyles = './app/styles/components/';
           var template = '_component.js';
 
           if (this.options.fromParent) {
-              path = '../app/components/'
+              path = '../app/components/',
+              pathStyles = '../app/styles/components/',
               template = '_componentMain.js'
           }
 
@@ -61,10 +63,16 @@ module.exports = generators.Base.extend({
           );
           this.fs.copyTpl(
               this.templatePath('_component.scss'),
-              this.destinationPath(path+name+'/'+name+'.scss'), {
+              this.destinationPath(pathStyles+'_'+name.toLowerCase()+'.scss'), {
                   name: name
               }
           );
+        },
+
+        messages: function(){
+          if (!this.options.fromParent) {
+            this.log("Don\'t forget to @import style into app.scss");
+          }
         }
     },
 

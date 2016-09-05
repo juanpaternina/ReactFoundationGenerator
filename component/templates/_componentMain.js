@@ -1,5 +1,4 @@
 var React = require('react');
-const styles = require('./<%= name %>.scss');
 const Api = require('Api');
 
 var <%= name %> = (props) => {
