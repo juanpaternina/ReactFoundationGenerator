@@ -27,6 +27,7 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      Api: 'app/api/api.js',
       Main: 'app/components/Main/Main.js',
       applicationStyles: 'app/styles/app.scss'
     },

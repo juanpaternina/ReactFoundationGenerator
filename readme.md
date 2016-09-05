@@ -11,7 +11,8 @@ Work in progress
 - [ ] Add ESLint to template
 - [ ] Add Server deploy config with Express
 - [ ] Create Tests for Generator
-- [ ] Add API file to template
+- [ ] Support for Firebase in Api file
+- [X] Add API file to template
 - [X] Add gitIgnore file to template
 - [X] Add Readme file to template
 - [x] Webpack Dev Server start from App folder

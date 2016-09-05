@@ -106,6 +106,10 @@ module.exports = generators.Base.extend({
                 this.templatePath('_app/_images/_yeoman.png'),
                 this.destinationPath('app/images/yeoman.png')
             );
+            this.fs.copy(
+                this.templatePath('_app/_api/_api.js'),
+                this.destinationPath('app/api/api.js')
+            );
             this.composeWith('yo-test:component', {
                 options: {
                     fromParent: true,
