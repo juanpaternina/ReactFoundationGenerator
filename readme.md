@@ -5,11 +5,12 @@ Work in progress
 
 ##Todos
 
+- [ ] Add Express
+- [ ] Add Support to Hot Reloading for fast dev
 - [ ] Complete Read me file
 - [ ] Add redux to template
 - [ ] Add Test to template
 - [ ] Add ESLint to template
-- [ ] Add Server deploy config with Express
 - [ ] Create Tests for Generator
 - [ ] Support for Firebase in Api file
 - [X] Add API file to template
