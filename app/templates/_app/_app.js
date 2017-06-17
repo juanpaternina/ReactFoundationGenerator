@@ -1,7 +1,14 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-var Main = require('Main');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
+
+import createHistory from 'history/createBrowserHistory'
+import Main from './components/Main/Main.js'
+
+const history = createHistory()
 
 // Load foundation
 $(document).foundation();
@@ -10,9 +17,12 @@ $(document).foundation();
 require('applicationStyles')
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={Main}>
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <div>
+        <Route exact path="/" component={Main}/>
+      </div>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('app')
 );

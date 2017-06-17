@@ -124,6 +124,18 @@ module.exports = generators.Base.extend({
                 this.templatePath('_app/_api/_api.js'),
                 this.destinationPath('app/api/api.js')
             );
+            this.fs.copy(
+                this.templatePath('_app/_store/_index.js'),
+                this.destinationPath('app/store/index.js')
+            );
+            this.fs.copy(
+                this.templatePath('_app/_reducers/_index.js'),
+                this.destinationPath('app/reducers/index.js')
+            );
+            this.fs.copy(
+                this.templatePath('_app/_reducers/_MainReducer.js'),
+                this.destinationPath('app/reducers/MainReducer.js')
+            );
             this.composeWith('yo-test:component', {
                 options: {
                     fromParent: true,
@@ -140,14 +152,16 @@ module.exports = generators.Base.extend({
             ['webpack', 'webpack-dev-server', 'babel-preset-react', 'babel-preset-es2015',
                 'babel-loader', 'babel-core', 'babel-preset-react', 'babel-preset-stage-0',
                 'css-loader', 'foundation-sites', 'jquery@2.2.1', 'node-sass', 'sass-loader',
-                'script-loader', 'style-loader', 'react-redux', 'redux'
+                'script-loader', 'style-loader'
             ], {
                 'saveDev': true
             }
         );
         //Dependencies
         this.npmInstall(
-            ['react', 'react-dom', 'react-router', 'axios'], {
+            ['react', 'react-dom', 'axios',  'react-redux', 'redux', 'redux-thunk',
+             'redux-observable', 'redux-logger', 'react-router-redux@^5.0.0-alpha.6',
+             'react-dom', 'react-router', 'react-router-dom'], {
                 'save': true
             }
         );
