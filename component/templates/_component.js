@@ -1,5 +1,4 @@
-var React = require('react');
-const Api = require('Api');
+import React from 'react';
 
 var <%= name %> = (props) => {
   return (
@@ -8,9 +7,3 @@ var <%= name %> = (props) => {
 }
 
 module.exports = <%= name %>;
-
-// Api.getSomethingEx().then((value) => {
-//   console.log(value);
-// }).catch((err) => {
-//   console.log(err);
-// })

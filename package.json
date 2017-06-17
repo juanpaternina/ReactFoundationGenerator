@@ -6,9 +6,10 @@
     "yeoman-generator"
   ],
   "files": [
-    "app", "component"
+    "app",
+    "component"
   ],
-  "author": "Juan pablo",
+  "author": "Juan pablo Paternina",
   "license": "MIT",
   "dependencies": {
     "yeoman-generator": "^0.24.1",

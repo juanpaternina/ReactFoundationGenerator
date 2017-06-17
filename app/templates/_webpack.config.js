@@ -1,23 +1,22 @@
 var webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+var config = {
   entry: [
     'script-loader!jquery/dist/jquery.min.js',
     'script-loader!foundation-sites/dist/js/foundation.min.js',
-    'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
-    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
     './app/app.js',
   ],
   output: {
-    path: __dirname,
+    path: __dirname+'/app',
     filename: './bundle.js'
   },
   externals: {
     jquery: 'jQuery'
   },
   devServer: {
-    contentBase: "./app"
+    contentBase: "./app",
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -30,7 +29,8 @@ module.exports = {
     alias: {
       Api: 'app/api/api.js',
       Main: 'app/components/Main/Main.js',
-      applicationStyles: 'app/styles/app.scss'
+      applicationStyles: 'app/styles/app.scss',
+      Actions: 'app/actions/index.js',
     },
     extensions: ['*', '.js', '.jsx']
   },
@@ -64,3 +64,16 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map'
 };
+
+if(process.env.NODE_ENV === 'production'){
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify(process.env.NODE_ENV )
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({sourceMap: true, minimize: true})
+    )
+}
+
+module.exports = config;
