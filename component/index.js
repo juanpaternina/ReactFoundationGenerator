@@ -71,14 +71,8 @@ module.exports = generators.Base.extend({
 
         messages: function(){
           if (!this.options.fromParent) {
-            this.log("Don\'t forget to @import style into app.scss");
+            this.log("Don\'t forget to import in webpack and app.scss ");
           }
         }
     },
-
-    //Install Dependencies
-    install: function() {
-        //Dev Dependencies
-        //Dependencies
-    }
 });
