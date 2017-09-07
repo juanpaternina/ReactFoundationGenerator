@@ -5,6 +5,7 @@
 @import "base/foundation-settings";
 @import "foundation";
 @include foundation-everything;
+@include foundation-flex-grid;
 
 //Components
 @import "components/main";
